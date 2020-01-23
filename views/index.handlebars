@@ -1,0 +1,39 @@
+<h2>{{title}}</h2>
+<a href="/cart">Items in cart: {{itemsInCart}}</a>
+<hr>
+
+
+<div>
+    <form method="POST" action="/filterIndex">
+        <div class="tooltip">
+            <label for="filter">Filter: </label>
+            <span class="tooltiptext">ex. "Model = oPhone" or <br>"Model = oPhone & Brand = No Kia"</span>
+        </div>
+        <input style="display:inline" type="text" name="filter" placeholder='Hover on "Filter" for information' value="{{filter}}">
+        <input style="display:inline" type="submit" value="Filter">
+    </form>
+</div>
+<br>
+<div>
+    {{#if phones}}
+    {{#each phones}}
+    <form class="clearfix" method="POST" action="/addToCart">
+        <img style="float: left; height:100px; width:auto" src="{{name}}.jpg" alt="image of the phone" />
+        <label for="name">Model: </label>
+        <input readonly="readonly" style="border-width: 0px;" type="text" name="name" value="{{name}}"><br>
+        <label for="brand">Brand: </label>
+        <input readonly="readonly" style="border-width: 0px;" type="text" name="brand" value="{{brand}}"><br>
+        <label for="price"> Price: </label>
+        <input readonly="readonly" style="border-width: 0px;" type="text" name="price" value="{{price}}"><br><br>
+        <input type="submit" value="Add item to cart">
+    </form>
+    <hr>
+    {{/each}}
+    {{else}}
+    <h5>No phones found</h5>
+    <hr>
+    {{/if}}
+</div>
+u
+
+<a href="/superhiddenadministrationpage">Definitely not the administation page</a>

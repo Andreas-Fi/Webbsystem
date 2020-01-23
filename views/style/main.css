@@ -1,0 +1,38 @@
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/*label {
+    style="display:inline"
+}*/
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 270px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 5px 0;
+    border-style:solid;
+    border-radius: 6px;
+    border-width: 2px;
+    border-color: black;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}

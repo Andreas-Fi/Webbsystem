@@ -1,0 +1,41 @@
+<a href="/">Back to main page</a>
+
+<h1>Orders:</h1><br>
+
+{{#if undeliveredItems}}
+{{#each undeliveredItems}}
+<form class="clearfix" method="POST" action="/hiddenUpdateDeliveryStatus">
+    <label for="customerName">Customer name: </label>
+    <input readonly="readonly" style="border-width: 0px;" type="text" name="customerName" value="{{customerName}}"><br>
+    <label for="phoneBrand">Phone brand: </label>
+    <input readonly="readonly" style="border-width: 0px;" type="text" name="phoneBrand" value="{{phoneBrand}}"><br>
+    <label for="phoneName"> Phone type: </label>
+    <input readonly="readonly" style="border-width: 0px;" type="text" name="phoneName" value="{{phoneName}}"><br>
+    <input readonly="readonly" style="visibility: hidden;" name="id" value="{{id}}">
+    <input type="submit" value="Order shipped">
+</form>
+<hr>
+{{/each}}
+{{else}}
+<p>No undelivered orders found</p>
+{{/if}}
+
+
+<br><br>
+{{#if deliveredItems}}
+<h3>Delivered items</h3>
+{{#each deliveredItems}}
+<form class="clearfix" method="POST" action="/hiddenUpdateDeliveryStatus">
+    <label for="customerName">Customer name: </label>
+    <input readonly="readonly" style="border-width: 0px;" type="text" name="customerName" value="{{customerName}}"><br>
+    <label for="phoneBrand">Phone brand: </label>
+    <input readonly="readonly" style="border-width: 0px;" type="text" name="phoneBrand" value="{{phoneBrand}}"><br>
+    <label for="phoneName"> Phone type: </label>
+    <input readonly="readonly" style="border-width: 0px;" type="text" name="phoneName" value="{{phoneName}}"><br>
+    <input readonly="readonly" style="visibility: hidden;" name="id" value="{{id}}">
+</form>
+<hr>
+{{/each}}
+{{else}}
+<p>No delivered orders found</p>
+{{/if}}

@@ -1,0 +1,33 @@
+<h1>Cart:</h1>
+
+{{#if items}}
+<ul>
+    {{#each items}}
+    <form class="clearfix" method="POST" action="/removeFromCart">
+        <img style="float: left; height:100px; width:auto" src="{{name}}.jpg" alt="image of the phone" />
+        <label for="name">Model: </label>
+        <input readonly="readonly" style="border-width: 0px;" type="text" name="name" value="{{name}}"><br>
+        <label for="brand">Brand: </label>
+        <input readonly="readonly" style="border-width: 0px;" type="text" name="brand" value="{{brand}}"><br>
+        <label for="price"> Price: </label>
+        <input readonly="readonly" style="border-width: 0px;" type="text" name="price" value="{{price}}"><br><br>
+        <input type="submit" value="Remove item from cart">
+    </form>
+    {{/each}}
+    <p>Total price: {{totalPrice}}</p>
+</ul>
+<hr>
+
+<form action="/confirm" method="post">
+    <label for="name">Name: </label> <input type="text" name="name" required><br>
+    <label for="email">E-mail: </label> <input type="text" name="email" required><br>
+    <label for="creditcard">Creditcard number: </label> <input type="number" name="creditcard" required><br><br>
+    <input type="submit" value="Confirm order">
+</form>
+
+{{else}}
+<p>Cart is empty</p>
+{{/if}}
+
+<hr>
+<a href="/">To index page</a>
